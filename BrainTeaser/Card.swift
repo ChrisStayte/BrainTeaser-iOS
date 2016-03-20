@@ -14,6 +14,7 @@ class Card: UIView {
     var currentFlag: String!
     
     @IBOutlet weak var flagImage: UIImageView!
+    @IBOutlet weak var resultImage: UIImageView!
     
     @IBInspectable var cornerRadius: CGFloat = 3.0 {
         didSet {
@@ -43,8 +44,22 @@ class Card: UIView {
     }
     
     func selectFlag() {
-        currentFlag = flags[Int(arc4random_uniform(3))]
+        let randomNumber = Int(arc4random_uniform(3))
+        currentFlag = flags[randomNumber]
+        flagImage.tag = randomNumber
         flagImage.image = UIImage(named: currentFlag)
+        
     }
+    
+    func showResult(isCard: Bool) {
+        if isCard{
+            self.resultImage.image = UIImage(named: "correct")
+        } else {
+            self.resultImage.image = UIImage(named: "incorrect")
+        }
+        self.resultImage.hidden = false
+    }
+    
+    
 
 }

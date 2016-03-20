@@ -18,19 +18,30 @@
                         <constraint firstAttribute="width" constant="200" id="utl-UQ-ig5"/>
                     </constraints>
                 </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="qd4-3N-aGv">
+                    <rect key="frame" x="194" y="194" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="9ra-Z7-MaW"/>
+                        <constraint firstAttribute="height" constant="48" id="HbE-vp-35e"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Q7-dt-qyt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VwP-sw-iiH"/>
                 <constraint firstItem="6Q7-dt-qyt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="c0D-Fa-mMq"/>
+                <constraint firstAttribute="bottom" secondItem="qd4-3N-aGv" secondAttribute="bottom" constant="8" id="mTK-5k-DDR"/>
+                <constraint firstAttribute="trailing" secondItem="qd4-3N-aGv" secondAttribute="trailing" constant="8" id="t0q-g5-a8G"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="flagImage" destination="6Q7-dt-qyt" id="V5J-7z-D7m"/>
+                <outlet property="resultImage" destination="qd4-3N-aGv" id="7Zj-mP-mFX"/>
             </connections>
         </view>
     </objects>
     <resources>
+        <image name="correct" width="100" height="100"/>
         <image name="flag1" width="1800" height="1211"/>
     </resources>
 </document>

@@ -15,11 +15,22 @@ class GameVC: UIInputViewController {
     @IBOutlet weak var yesBtn: BouncyButton!
     @IBOutlet weak var noBtn: BouncyButton!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var timerLbl: UILabel!
     
     var currentCard: Card!
+    var previousCard: Card!
+    
+    var totalCards: Int = 0
+    var correctCards: Int = 0
+    var incorrectCards: Int = 0
+    
+    var timerCount = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
 
         currentCard = createCardFromNib()
         currentCard.center = AnimationEngine.screenCenterPosition
@@ -27,10 +38,17 @@ class GameVC: UIInputViewController {
         
     }
     
+    func countDown() {
+        if timerCount >= 0 {
+            timerLbl.text = String(timerCount--)
+        } else {
+            performSegueWithIdentifier("Results", sender: nil)
+        }
+    }
     
     @IBAction func yesPressed(sender: UIButton) {
         if sender.titleLabel?.text == "YES" {
-            checkAnswer()
+            checkAnswer("Yes")
         } else {
             titleLbl.text = "Does this card match the previous?"
         }
@@ -39,44 +57,71 @@ class GameVC: UIInputViewController {
     }
     
     @IBAction func noPressed(sender: AnyObject) {
-        checkAnswer()
+        checkAnswer("No")
         showNextCard()
     }
     
-    func checkAnswer() {
-        
+    func checkAnswer(answer: String) {
+        totalCards++
+        if answer == "Yes" {
+            if currentCard.flagImage.tag == previousCard.flagImage.tag {
+                currentCard.showResult(true)
+                correctCards++
+            } else {
+                currentCard.showResult(false)
+                incorrectCards++
+            }
+        }
+        if answer == "No"  {
+            if currentCard.flagImage.tag == previousCard.flagImage.tag  {
+                currentCard.showResult(false)
+                incorrectCards++
+            } else {
+                currentCard.showResult(true)
+                correctCards++
+            }
+        }
     }
     
     func showNextCard() {
-        
-        if let current = currentCard {
+        self.previousCard = self.currentCard
+        if let current = self.currentCard {
             let cardToRemove = current
-            currentCard = nil
+            self.currentCard = nil
             
             AnimationEngine.animateToPosition(cardToRemove, position: AnimationEngine.offScreenLeftPosition, completion: { (anim:POPAnimation!, finished: Bool) -> Void in
                 cardToRemove.removeFromSuperview()
             })
-            
         }
-        
-        if let next = createCardFromNib() {
+            
+        if let next = self.createCardFromNib() {
             next.center = AnimationEngine.offScreenRightPosition
             self.view.addSubview(next)
-            currentCard = next
+            self.currentCard = next
             
-            if noBtn.hidden {
-                noBtn.hidden = false
-                yesBtn.setTitle("Yes", forState: .Normal)
+            if self.noBtn.hidden {
+                self.noBtn.hidden = false
+                self.yesBtn.setTitle("YES", forState: .Normal)
+                self.timerLbl.hidden = false
+                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countDown", userInfo: nil, repeats: true)
             }
             
-            AnimationEngine.animateToPosition(next, position: AnimationEngine.screenCenterPosition, completion: { (anim:POPAnimation!,finished:Bool) -> Void in
-            })
-            
-        }
+            AnimationEngine.animateToPosition(next, position: AnimationEngine.screenCenterPosition, completion: { (anim:POPAnimation!,finished:Bool) -> Void in})
+            }
     }
     
     func createCardFromNib() -> Card! {
         return NSBundle.mainBundle().loadNibNamed("Card", owner: self, options: nil)[0] as? Card
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Results" {
+            if let view = segue.destinationViewController as? ResultsVC {
+                view._total = totalCards
+                view._correct = correctCards
+                view._incorrect = incorrectCards
+            }
+        }
     }
 
 }
