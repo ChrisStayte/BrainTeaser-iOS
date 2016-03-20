@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="BrainTeaser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,109 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-qB-wkC" customClass="CustomTextField" customModule="BrainTeaser" customModuleProvider="target">
+                                <rect key="frame" x="175" y="213" width="251" height="40"/>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6nG-j6-XdP"/>
+                                    <constraint firstAttribute="width" constant="251" id="RFv-kI-rzQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZA-Cz-DEK" customClass="CustomTextField" customModule="BrainTeaser" customModuleProvider="target">
+                                <rect key="frame" x="175" y="273" width="251" height="40"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gtR-R1-j9q"/>
+                                    <constraint firstAttribute="width" constant="251" id="je2-zz-LFI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPd-WD-Bdj" customClass="BouncyButton" customModule="BrainTeaser" customModuleProvider="target">
+                                <rect key="frame" x="227" y="333" width="147" height="40"/>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.5725490196078431" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Tbt-MQ-MQv"/>
+                                    <constraint firstAttribute="width" constant="147" id="USa-oh-IlT"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="6Q7-QK-oRn">
+                                <rect key="frame" x="165" y="20" width="269" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="5jV-SN-bTn"/>
+                                    <constraint firstAttribute="height" constant="211" id="Dec-nL-QrH"/>
+                                    <constraint firstAttribute="width" constant="332" id="F5C-EE-2wa"/>
+                                    <constraint firstAttribute="height" constant="173" id="TRo-Op-5BZ"/>
+                                    <constraint firstAttribute="height" constant="291" id="lFt-b6-E3Y"/>
+                                    <constraint firstAttribute="width" constant="274.5" id="oLm-eK-jaN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Dec-nL-QrH"/>
+                                        <exclude reference="F5C-EE-2wa"/>
+                                        <exclude reference="lFt-b6-E3Y"/>
+                                        <exclude reference="oLm-eK-jaN"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dZA-Cz-DEK" firstAttribute="top" secondItem="hXh-qB-wkC" secondAttribute="bottom" constant="20" id="0dk-Tj-T0s"/>
+                            <constraint firstItem="KPd-WD-Bdj" firstAttribute="centerX" secondItem="hXh-qB-wkC" secondAttribute="centerX" id="9en-yB-pce"/>
+                            <constraint firstItem="6Q7-QK-oRn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JRJ-a3-VNp"/>
+                            <constraint firstItem="dZA-Cz-DEK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LXp-Bz-0Pg"/>
+                            <constraint firstItem="KPd-WD-Bdj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OWA-r2-enA"/>
+                            <constraint firstItem="KPd-WD-Bdj" firstAttribute="top" secondItem="dZA-Cz-DEK" secondAttribute="bottom" constant="20" id="h0c-US-dCG"/>
+                            <constraint firstItem="hXh-qB-wkC" firstAttribute="top" secondItem="6Q7-QK-oRn" secondAttribute="bottom" constant="20" id="jDP-We-tfK"/>
+                            <constraint firstItem="hXh-qB-wkC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o2T-Nr-43D"/>
+                            <constraint firstItem="6Q7-QK-oRn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qmb-r2-Wr5"/>
+                            <constraint firstItem="dZA-Cz-DEK" firstAttribute="centerX" secondItem="hXh-qB-wkC" secondAttribute="centerX" id="sgg-Sq-vyJ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LXp-Bz-0Pg"/>
+                                <exclude reference="OWA-r2-enA"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailConstraint" destination="o2T-Nr-43D" id="V5w-ND-OGP"/>
+                        <outlet property="loginConstraint" destination="9en-yB-pce" id="w5p-zs-vDe"/>
+                        <outlet property="passwordConstraint" destination="sgg-Sq-vyJ" id="OE0-Pj-vhr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="565" y="521"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brain" width="1667" height="1667"/>
+    </resources>
 </document>
