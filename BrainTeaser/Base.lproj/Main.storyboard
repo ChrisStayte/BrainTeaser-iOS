@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LoginVC-->
@@ -66,6 +67,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="QZe-cj-BdD" kind="show" id="Qs8-ie-whx"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="6Q7-QK-oRn">
                                 <rect key="frame" x="165" y="20" width="269" height="173"/>
@@ -116,6 +120,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565" y="521"/>
+        </scene>
+        <!--GameVC-->
+        <scene sceneID="izW-Bf-Ii5">
+            <objects>
+                <viewController id="QZe-cj-BdD" customClass="GameVC" customModule="BrainTeaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ggW-vQ-0JP"/>
+                        <viewControllerLayoutGuide type="bottom" id="bnH-dK-fnY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XsT-QL-aMI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTd-QI-uE0" customClass="BouncyButton" customModule="BrainTeaser" customModuleProvider="target">
+                                <rect key="frame" x="199" y="508" width="105" height="40"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.57254901960000004" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="9iY-Df-XNe"/>
+                                    <constraint firstAttribute="width" constant="105" id="QkM-dp-e8e"/>
+                                    <constraint firstAttribute="height" constant="40" id="mXF-Dc-8yl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="START"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9iY-Df-XNe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="yesPressed:" destination="QZe-cj-BdD" eventType="touchUpInside" id="hsU-zC-Bm9"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Tk-lw-wDd" customClass="BouncyButton" customModule="BrainTeaser" customModuleProvider="target">
+                                <rect key="frame" x="16" y="508" width="105" height="40"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.57254901960000004" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PUr-p1-4vy"/>
+                                    <constraint firstAttribute="width" constant="147" id="ZoF-Bm-USr"/>
+                                    <constraint firstAttribute="width" constant="105" id="mUb-uZ-XmF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="NO"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZoF-Bm-USr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="noPressed:" destination="QZe-cj-BdD" eventType="touchUpInside" id="vFq-HG-RyC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember this image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viQ-Yd-Atd">
+                                <rect key="frame" x="16" y="70" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="k8R-uW-SNN"/>
+                                    <constraint firstAttribute="height" constant="21" id="qrc-KJ-wIL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="viQ-Yd-Atd" firstAttribute="centerX" secondItem="XsT-QL-aMI" secondAttribute="centerX" id="CG2-I5-SXr"/>
+                            <constraint firstItem="7Tk-lw-wDd" firstAttribute="leading" secondItem="XsT-QL-aMI" secondAttribute="leadingMargin" id="SLx-Fw-Hu2"/>
+                            <constraint firstItem="bnH-dK-fnY" firstAttribute="top" secondItem="7Tk-lw-wDd" secondAttribute="bottom" constant="20" id="ZJB-j7-Sbx"/>
+                            <constraint firstItem="rTd-QI-uE0" firstAttribute="trailing" secondItem="XsT-QL-aMI" secondAttribute="trailingMargin" id="lzj-5H-FH8"/>
+                            <constraint firstItem="bnH-dK-fnY" firstAttribute="top" secondItem="rTd-QI-uE0" secondAttribute="bottom" constant="20" id="mS2-Jj-Tye"/>
+                            <constraint firstItem="viQ-Yd-Atd" firstAttribute="top" secondItem="ggW-vQ-0JP" secondAttribute="bottom" constant="50" id="rOb-VN-VrM"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="noBtn" destination="7Tk-lw-wDd" id="FVA-1k-SLc"/>
+                        <outlet property="titleLbl" destination="viQ-Yd-Atd" id="bVN-qN-5M6"/>
+                        <outlet property="yesBtn" destination="rTd-QI-uE0" id="5rI-UE-6Gx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sT-y2-f6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="505"/>
         </scene>
     </scenes>
     <resources>
